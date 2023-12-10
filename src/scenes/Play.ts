@@ -1,7 +1,5 @@
 import * as Phaser from "phaser";
 
-import starfieldUrl from "/assets/starfield.png";
-
 export default class Play extends Phaser.Scene {
   fire?: Phaser.Input.Keyboard.Key;
   left?: Phaser.Input.Keyboard.Key;
@@ -17,7 +15,8 @@ export default class Play extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("starfield", starfieldUrl);
+    this.load.image("rotary", "./assets/RotarySpin.png");
+    this.load.image("phone", "./assets/Phone.jpg");
   }
 
   #addKey(
@@ -27,40 +26,27 @@ export default class Play extends Phaser.Scene {
   }
 
   create() {
-    this.fire = this.#addKey("F");
-    this.left = this.#addKey("LEFT");
-    this.right = this.#addKey("RIGHT");
+    keyA = this.#addKey("A");
+    keyD = this.#addKey("D");
+    keyLEFT = this.#addKey("LEFT");
+    keyRIGHT = this.#addKey("RIGHT");
 
-    this.starfield = this.add
-      .tileSprite(
-        0,
-        0,
-        this.game.config.width as number,
-        this.game.config.height as number,
-        "starfield",
-      )
-      .setOrigin(0, 0);
+    this.rotary = this.add.sprite(670, 660, "rotary").setOrigin(0.5).setScale(1.8);
 
-    this.spinner = this.add.rectangle(100, 100, 50, 50, 0xff0000);
+    //this.spinner = this.add.rectangle(100, 100, 50, 50, 0xff0000);
   }
 
   update(_timeMs: number, delta: number) {
-    this.starfield!.tilePositionX -= 4;
-
-    if (this.left!.isDown) {
-      this.spinner!.rotation -= delta * this.rotationSpeed;
-    }
-    if (this.right!.isDown) {
-      this.spinner!.rotation += delta * this.rotationSpeed;
-    }
-
-    if (this.fire!.isDown) {
-      this.tweens.add({
-        targets: this.spinner,
-        scale: { from: 1.5, to: 1 },
-        duration: 300,
-        ease: Phaser.Math.Easing.Sine.Out,
-      });
+    if(this.input.keyboard.checkDown(keyA) || this.input.keyboard.checkDown(keyLEFT)){
+      console.log("left down");
+      if (this.rotary.angle >= -30) this.rotary.angle -= 0.5;
+    } else if (this.input.keyboard.checkDown(keyD) || this.input.keyboard.checkDown(keyRIGHT)){
+      console.log("right down");
+      if (this.rotary.angle <= 30) this.rotary.angle += 0.5;
+    } else {
+      if (this.rotary.angle < -1) this.rotary.angle += 0.5;
+      else if (this.rotary.angle > 1) this.rotary.angle -= 0.5;
+      else(this.rotary.angle = 0);
     }
   }
 }

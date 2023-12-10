@@ -8,6 +8,8 @@ const config: Phaser.Types.Core.GameConfig = {
   scene: [Menu, Play],
 };
 
+let keyA, keyD, keyLEFT, keyRIGHT;
+
 document.title = "Rocket Patrol Remake";
 document.body.style.backgroundColor = "beige";
 
