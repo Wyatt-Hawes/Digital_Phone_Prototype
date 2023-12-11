@@ -141,6 +141,20 @@ export default class Play extends Phaser.Scene {
       .setScale(0.4)
       .setInteractive();
 
+    this.add
+      .text(
+        30,
+        170,
+        "666-6666\n" +
+          "131-3131\n" +
+          "000-0000\n" +
+          "404-2604\n" +
+          "216-3331\n",
+      )
+      .setOrigin(0, 0)
+      .setFontSize(25)
+      .setColor("0x000000");
+
     this.keyA = this.#addKey("A");
     this.keyD = this.#addKey("D");
     this.keyLEFT = this.#addKey("LEFT");
@@ -255,10 +269,10 @@ export default class Play extends Phaser.Scene {
 
     const validPhoneNumbers: Record<string, Audios> = {
       "666-6666": { low: 1, high: 4 },
-      "111-1111": { low: 5, high: 8 },
-      "222-2222": { low: 9, high: 12 },
-      "333-3333": { low: 13, high: 16 },
-      "444-4444": { low: 17, high: 20 },
+      "131-3131": { low: 5, high: 8 },
+      "000-0000": { low: 9, high: 12 },
+      "404-2604": { low: 13, high: 16 },
+      "216-3331": { low: 17, high: 20 },
     };
 
     // Let the phone ring

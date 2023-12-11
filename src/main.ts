@@ -4,10 +4,14 @@ import Menu from "./scenes/Menu";
 import Play from "./scenes/Play";
 
 const config: Phaser.Types.Core.GameConfig = {
-  width: 640,
-  height: 640,
   scene: [Menu, Play],
   backgroundColor: "#FFFFFF",
+  scale: {
+    width: 640,
+    height: 640,
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
 };
 
 document.title = "Phone Prototype";
