@@ -1,4 +1,5 @@
 import * as Phaser from "phaser";
+import yamldata from "/assets/scenario.yaml?url";
 import Menu from "./scenes/Menu";
 import Play from "./scenes/Play";
 

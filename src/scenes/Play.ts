@@ -1,4 +1,5 @@
 import * as Phaser from "phaser";
+import yamldata from "/assets/scenario.yaml?url";
 
 export default class Play extends Phaser.Scene {
   fire?: Phaser.Input.Keyboard.Key;
