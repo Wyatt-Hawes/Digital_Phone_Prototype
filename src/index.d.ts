@@ -9,3 +9,6 @@ declare module "*jpg?url";
 
 declare module "*.json";
 declare module "*json?url";
+
+declare module "*.wav";
+declare module "*wav?url";
