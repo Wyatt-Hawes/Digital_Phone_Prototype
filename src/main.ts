@@ -5,12 +5,12 @@ import Play from "./scenes/Play";
 
 const config: Phaser.Types.Core.GameConfig = {
   width: 640,
-  height: 480,
+  height: 640,
   scene: [Menu, Play],
+  backgroundColor: "#FFFFFF",
 };
 
-
-document.title = "Rocket Patrol Remake";
+document.title = "Phone Prototype";
 document.body.style.backgroundColor = "beige";
 
 new Phaser.Game(config);

@@ -1,11 +1,11 @@
 declare module "*.png";
 declare module "*.jpg";
 
-declare module "*png?url";
-declare module "jpg?url";
+declare module "*.mp3";
+declare module "*mp3?url";
 
-declare module "*.yaml";
-declare module "*yaml?url";
+declare module "*png?url";
+declare module "*jpg?url";
 
 declare module "*.json";
 declare module "*json?url";
