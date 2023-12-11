@@ -206,9 +206,9 @@ export default class Play extends Phaser.Scene {
       this.rotary!.angle = -diff + 360;
     } else {
       if (this.rotary!.angle < -1) {
-        this.rotary!.angle -= 0.75;
+        this.rotary!.angle -= 1.75;
       } else if (this.rotary!.angle > 1) {
-        this.rotary!.angle -= 0.75;
+        this.rotary!.angle -= 1.75;
       } else {
         this.dialFinish?.stop();
         this.rotary!.angle = 0;
