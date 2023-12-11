@@ -1,5 +1,5 @@
 import * as Phaser from "phaser";
-import yamldata from "/assets/scenario.yaml?url";
+//import yamldata from "/assets/scenario.yaml?url";
 import Menu from "./scenes/Menu";
 import Play from "./scenes/Play";
 
@@ -9,7 +9,6 @@ const config: Phaser.Types.Core.GameConfig = {
   scene: [Menu, Play],
 };
 
-let keyA, keyD, keyLEFT, keyRIGHT;
 
 document.title = "Rocket Patrol Remake";
 document.body.style.backgroundColor = "beige";

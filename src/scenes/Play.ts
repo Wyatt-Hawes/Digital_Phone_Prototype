@@ -1,5 +1,5 @@
 import * as Phaser from "phaser";
-import yamldata from "/assets/scenario.yaml?url";
+//import yamldata from "/assets/scenario.yaml?url";
 
 import Phone from "public/assets/images/Phone.jpg";
 import Rotary from "public/assets/images/RotarySpin.png";
@@ -8,12 +8,13 @@ import Rotary from "public/assets/images/RotarySpin.png";
 
 
 export default class Play extends Phaser.Scene {
-  fire?: Phaser.Input.Keyboard.Key;
-  left?: Phaser.Input.Keyboard.Key;
-  right?: Phaser.Input.Keyboard.Key;
+  // Declare class properties
+  rotary?: Phaser.GameObjects.Sprite;
+  keyA?: Phaser.Input.Keyboard.Key;
+  keyD?: Phaser.Input.Keyboard.Key;
+  keyLEFT?: Phaser.Input.Keyboard.Key;
+  keyRIGHT?: Phaser.Input.Keyboard.Key;
 
-  starfield?: Phaser.GameObjects.TileSprite;
-  spinner?: Phaser.GameObjects.Shape;
 
   rotationSpeed = Phaser.Math.PI2 / 1000; // radians per millisecond
 
@@ -24,6 +25,7 @@ export default class Play extends Phaser.Scene {
   preload() {
     this.load.image("rotary", Rotary);
     this.load.image("phone", Phone);  }
+    
 
   #addKey(
     name: keyof typeof Phaser.Input.Keyboard.KeyCodes,
@@ -32,27 +34,26 @@ export default class Play extends Phaser.Scene {
   }
 
   create() {
-    keyA = this.#addKey("A");
-    keyD = this.#addKey("D");
-    keyLEFT = this.#addKey("LEFT");
-    keyRIGHT = this.#addKey("RIGHT");
+    this.keyA = this.#addKey("A");
+    this.keyD = this.#addKey("D");
+    this.keyLEFT = this.#addKey("LEFT");
+    this.keyRIGHT = this.#addKey("RIGHT");
 
     this.rotary = this.add.sprite(670, 660, "rotary").setOrigin(0.5).setScale(1.8);
 
-    //this.spinner = this.add.rectangle(100, 100, 50, 50, 0xff0000);
   }
 
   update(_timeMs: number, delta: number) {
-    if(this.input.keyboard.checkDown(keyA) || this.input.keyboard.checkDown(keyLEFT)){
-      console.log("left down");
-      if (this.rotary.angle >= -30) this.rotary.angle -= 0.5;
-    } else if (this.input.keyboard.checkDown(keyD) || this.input.keyboard.checkDown(keyRIGHT)){
-      console.log("right down");
-      if (this.rotary.angle <= 30) this.rotary.angle += 0.5;
-    } else {
-      if (this.rotary.angle < -1) this.rotary.angle += 0.5;
-      else if (this.rotary.angle > 1) this.rotary.angle -= 0.5;
-      else(this.rotary.angle = 0);
-    }
+    // if(this.input.keyboard.checkDown(keyA) || this.input.keyboard.checkDown(keyLEFT)){
+    //   console.log("left down");
+    //   if (this.rotary.angle >= -30) this.rotary.angle -= 0.5;
+    // } else if (this.input.keyboard.checkDown(keyD) || this.input.keyboard.checkDown(keyRIGHT)){
+    //   console.log("right down");
+    //   if (this.rotary.angle <= 30) this.rotary.angle += 0.5;
+    // } else {
+    //   if (this.rotary.angle < -1) this.rotary.angle += 0.5;
+    //   else if (this.rotary.angle > 1) this.rotary.angle -= 0.5;
+    //   else(this.rotary.angle = 0);
+    //}
   }
 }
