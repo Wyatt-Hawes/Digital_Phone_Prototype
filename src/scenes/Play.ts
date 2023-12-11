@@ -1,6 +1,12 @@
 import * as Phaser from "phaser";
 import yamldata from "/assets/scenario.yaml?url";
 
+import Phone from "public/assets/images/Phone.jpg";
+import Rotary from "public/assets/images/RotarySpin.png";
+
+
+
+
 export default class Play extends Phaser.Scene {
   fire?: Phaser.Input.Keyboard.Key;
   left?: Phaser.Input.Keyboard.Key;
@@ -16,9 +22,8 @@ export default class Play extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("rotary", "./assets/RotarySpin.png");
-    this.load.image("phone", "./assets/Phone.jpg");
-  }
+    this.load.image("rotary", Rotary);
+    this.load.image("phone", Phone);  }
 
   #addKey(
     name: keyof typeof Phaser.Input.Keyboard.KeyCodes,
